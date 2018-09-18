@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<configuration>
+	<connectionStrings>
+		<add name="defaultCon" connectionString="Data Source=NDC-WVA-IDF01;Initial Catalog=idfoi;Persist Security Info=True;User ID=sa;Password=WV@_DBPS01;MultipleActiveResultSets=True" providerName="System.Data.SqlClient"/>
+	</connectionStrings>
+	<system.web>
+		<sessionState timeout="10"/>
+		<httpRuntime requestValidationMode="2.0" enableVersionHeader="false"/>
+    <customErrors mode="RemoteOnly" defaultRedirect="http://idfoi.nic.in/error.aspx">
+      <error statusCode="404" redirect="http://idfoi.nic.in/error.aspx"/>
+      <error statusCode="500" redirect="http://idfoi.nic.in/error.aspx"/>
+    </customErrors>
+		<compilation debug="false" targetFramework="4.0"/>
+		<pages validateRequest="false">
+			<namespaces>
+				<add namespace="System.Text"/>
+				<add namespace="System.Data"/>
+				<add namespace="System.Data.Sql"/>
+				<add namespace="System.Data.SqlClient"/>
+				<add namespace="System.Configuration"/>
+			</namespaces>
+		</pages>
+		<httpCookies httpOnlyCookies="true"/>
+	</system.web>
+	<system.webServer>
+<httpErrors existingResponse="Replace" errorMode="Custom">
+       <remove statusCode="401" subStatusCode="-1" />
+       <remove statusCode="403" subStatusCode="-1" />      
+       <remove statusCode="404" subStatusCode="-1" />                
+       <remove statusCode="500" subStatusCode="-1" />
+       <error statusCode="401" path="http://idfoi.nic.in/error.aspx" responseMode="Redirect" />
+       <error statusCode="403" path="http://idfoi.nic.in/error.aspx" responseMode="Redirect" />
+       <error statusCode="404" path="http://idfoi.nic.in/error.aspx" responseMode="Redirect"  />                
+       <error statusCode="500" path="http://idfoi.nic.in/error.aspx" responseMode="Redirect"  />
+</httpErrors><modules runAllManagedModulesForAllRequests="true"/>
+		
+		<security>
+			<requestFiltering>
+				<verbs>
+					<add verb="OPTIONS" allowed="false"/>
+					<add verb="DELETE" allowed="false"/>
+					<add verb="TRACE" allowed="false"/>
+					<add verb="HEAD" allowed="false"/>
+					<add verb="PROPFIND" allowed="false"/>
+					<add verb="COPY" allowed="false"/>
+					<add verb="LOCK" allowed="false"/>
+					<add verb="UNLOCK" allowed="false"/>
+					<add verb="PROPPATCH" allowed="false"/>
+					<add verb="MKCOL" allowed="false"/>
+					<add verb="MOVE" allowed="false"/>
+				</verbs>
+			</requestFiltering>
+		</security>
+		<httpProtocol>
+			<customHeaders>
+				<add name="X-Frame-Options" value="DENY"/>
+				<remove name="X-Powered-By"/>
+			</customHeaders>
+		</httpProtocol>
+	</system.webServer>
+</configuration>
+

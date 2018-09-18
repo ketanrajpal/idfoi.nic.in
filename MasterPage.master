@@ -1,0 +1,237 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<% Session["page"]=""; %>
+<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>India Development Foundation of Overseas Indians</title>
+<link id="Link1" href="css/main.css" rel="stylesheet" type="text/css" runat="server" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+<link id="Link2" rel="stylesheet" type="text/css" href="fonts/font-neo-sans-std.css" runat="server" />
+<link id="Link3" rel="stylesheet" type="text/css" href="css/lightbox.css" runat="server" />
+<script src="js/validate.min.js"></script>
+<script src="js/md5.js"></script>
+</head>
+<body>
+<header class="clear"> <a href="../" id="logo"><img src="img/logo.gif"></a>
+  <nav>
+    <ul class="clear">
+      <li><a href="default.aspx">Home</a></li>
+      <li class="submenu"> <a href="about-idf.aspx">About IDF-OI</a>
+        <ul>
+          <li><a href="mandate.aspx">Mandate</a></li>
+          <li><a href="chairpersons-profile.aspx">Chairperson&rsquo;s Profile</a></li>
+          <li><a href="board-of-trustees.aspx">Board of Trustees</a></li>
+          <li><a href="projects-funded.aspx">Projects Funded</a></li>
+		  <li><a href="idfoi-champions.aspx">IDF-OI Champions</a></li>
+<li><a href="careers.aspx">Careers</a></li>
+        </ul>
+      </li>
+      <li class="submenu"> <a href="giving-back.aspx">Giving Back</a>
+        <ul>
+         <li><a href="to-swachh-bharat-mission.aspx">To Swachh Bharat Mission</a></li>
+         <li><a href="to-clean-ganga-mission.aspx">To Clean Ganga Mission</a></li>
+         <li><a href="state-projects.aspx">To State Projects</a></li>
+          <li><a href="monitoring-mechanism.aspx">Monitoring Mechanism</a></li>
+        </ul>
+      </li>
+      <li class="submenu"> <a href="media-corner.aspx">Media Corner</a>
+        <ul>
+          <li><a href="photo-gallery.aspx">Photo Gallery</a></li>
+          <li><a href="press-releases.aspx">Press Releases</a></li>
+          <li><a href="events.aspx">Events</a></li>
+          <li><a href="india-inspired.aspx">India Inspired</a></li>
+          <li><a href="idf-oi-in-news.aspx">IDF-OI in News</a></li>
+        </ul>
+      </li>
+      <li><a href="faqs.aspx">FAQs</a></li>
+      <li><a href="feedback.aspx">Feedback</a></li>
+      <li><a href="contact-us.aspx">Contact Us</a></li>
+
+        <li class="contribute_nav"><a href="choose_contribution.aspx">Contribute Now</a></li>
+
+      <li><a href="https://www.facebook.com/idfoi" target="_blank"><span class="fa fa-facebook-official" style="color:#3b5998;font-size:20px;"></span></a></li>
+      <li><a href="https://twitter.com/GivingtoIndia" target="_blank"><span class="fa fa-twitter" style="color:#33ccff ;font-size:20px;"></span></a></li>
+    </ul>
+  </nav>
+</header>
+<script>
+    $(".submenu").hover(function () {
+
+        $(this).children("ul").stop().fadeToggle("fast");
+
+    });
+   </script>
+<section id="slider" class="clear">
+    <ul>
+
+        <li><img src="img/slide-3.jpg" /></li>
+        <li><img src="img/slide-1.jpg" /></li>
+        <li><img src="img/slide-4.jpg" /></li>
+        <li><img src="img/slide-2.jpg" /></li>
+
+<%
+    functions a = new functions();
+    SqlConnection con1 = new SqlConnection(a.connect());
+    con1.Open();
+    SqlCommand cmd1 = new SqlCommand("select * from slider", con1);
+    SqlDataReader dr1 = cmd1.ExecuteReader();
+    while (dr1.Read())
+    {
+        %>
+        <!--<li><img src="<% Response.Write(a.path() +"slider/"+ dr1["image"].ToString()); %>" data-title="<h3><% Response.Write(dr1["description"].ToString()); %></h3>"></li>-->
+        <%
+            }
+            con1.Close();
+%>
+    </ul>
+  
+</section>
+<script>
+    $(document).ready(function () {
+        $('#slider ul').bxSlider({ auto: true, captions: true });
+    });
+</script>
+<section id="content" class="clear">
+  <article>
+
+      <% if (Session["foo"]!=null && Session["register_name"]!=null)
+                     { %>
+      
+      <div style="padding:10px 15px;background-color:#f5f5f5;">
+      <div class="left">
+
+          <p>Welcome <% Response.Write(Session["register_name"]); %></p>
+
+      </div>
+
+      <div class="right">
+
+          <nav>
+
+              <ul>
+
+                  <li><a href="register.aspx?slug=update">Edit Profile</a></li>
+                  <li><a href="change_password.aspx">Change Password</a></li>
+                  <li><a href="logout.aspx">Logout</a></li>
+              </ul>
+
+          </nav>
+
+      </div>  
+
+      <div class="clear"></div>
+          </div>
+      <% } %>
+
+
+<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+  </article>
+  <article>
+   <% if (Session["page"] == "home") { %>
+
+<div class="sushma_home">
+    <img src="../img/sushma_swaraj.jpg">
+    <div>Smt. Sushma Swaraj<br>Minister of External Affairs &<br>Chairperson, IDF-OI</div>
+    <p>&ldquo;Although, the Indian Diaspora is a very heterogeneous group, there is a common factor which binds them- their desire to maintain their connection with their homeland and to contribute to the social and development efforts in India. We are seeking to strengthen and deepen our relationship through IDF-OI.&rdquo;</p>
+   </div><br />
+
+   
+
+      <% if (Session["foo"] == null && Session["register_name"] == null) { %>
+<div style="padding:0px 15px;background-color:#f5f5f5;padding-top:15px;border:1px solid #CCC;">
+<h1 style="margin-top:0px;color:#3574ae;">Friends of IDF-OI</h1>
+ 
+    <a href="login.aspx"><img src="../img/login.jpg" /></a>
+    <br /><br />
+    <a href="register.aspx"><img src="../img/register.jpg" /></a><br /><br />
+   
+   
+</div>
+
+      <br /><br />
+
+      <%} %>
+
+      <ul class="banner-slider">
+          <li><a href="to-swachh-bharat-mission.aspx"><img src="../img/swach-bharat-banner.jpg" /></a></li>
+          <li><a href="to-clean-ganga-mission.aspx"><img src="../img/namami-gange-banner.jpg" /></a></li>
+      </ul>
+
+      <script>
+    $(document).ready(function () {
+        $('.banner-slider').bxSlider({ auto: true, captions: false, mode:'fade', controls: false, pager:false });
+    });
+</script>
+
+
+   <% } %>
+   
+   <% if(Session["page"]=="board-of-trustees"){ %>
+   <br><br><br><br><h2>Previous  board meetings</h2>
+   <ul class="list india-inspires">
+    <li>4th Board Meeting:<span class="date">23 May 2015, New Delhi</span></li>
+    <li>3rd Board Meeting:<span class="date">26 February 2014, New Delhi</span></li>
+    <li>2nd Board Meeting:<span class="date">28 September 2012, New Delhi</span></li>
+    <li>1st Board Meeting:<span class="date">04 November 2009, New Delhi</span></li>
+   </ul>
+   
+   <% }if(Session["page"]=="giving-back"){ %>
+   
+   <br><br><h2>Contribute to</h2>
+   <p>India Development Foundation of<br>Overseas Indians<br>
+   State Bank of India<br>
+   Central Secretariat Branch,<br>North Block, New Delhi 110001<br>
+   A/C no. 33819721882<br>
+   IFSC code SBIN0000625<br>
+   MICR 110002014</p>
+   
+   <% } %>
+   
+  </article>
+</section>
+
+<footer>
+  <ul class="clear">
+    <li><a href="../"><img src="img/logo.gif" class="logo"></a>
+    </li>
+    <li>
+      <h1>&copy; copyright 2015 India Development Foundation of Overseas Indians <br> An initiative of the Government of India</h1>
+    </li>
+  </ul>
+  <div style="color:#666;font-size:14px;padding-top:15px;display:block;text-align:center">
+  <strong style="font-weight:500;color:#F00">Visitor <span id="counter" runat="server"></span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Updated on:&nbsp;&nbsp;<span class="fa fa-calendar"></span> <strong style="font-weight:500;">09 May, 2016</strong>
+    </div>
+  
+</footer>
+<script src="../js/lightbox.js"></script>
+<script type="text/javascript" language="javascript">   
+ $(document).ready(function() {
+    if(!(navigator.onLine)) 
+    {
+    alert("U'r Browser seems to be Offline! \n");
+     window.location.href='default.aspx';
+    return false;
+    }
+    else
+    {
+    
+    return true;
+    }
+});
+</script>
+<script type="text/javascript">    $(function () {
+        $(".datepicker").datepicker();
+    });
+    $(document).ready(function () { $("input").attr("autocomplete", "off"); }); 
+    </script>
+ 
+</body>
+</html>

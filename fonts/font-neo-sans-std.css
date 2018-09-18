@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'neo-sans-std-black';
+  src: url('neo-sans-std-black/neo-sans-std-black.eot'); /* IE9 Compat Modes */
+  src: url('neo-sans-std-black/neo-sans-std-black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('neo-sans-std-black/neo-sans-std-black.woff') format('woff'), /* Pretty Modern Browsers */
+       url('neo-sans-std-black/neo-sans-std-black.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('neo-sans-std-black/neo-sans-std-black.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'neo-sans-std-medium';
+  src: url('neo-sans-std-medium/neo-sans-std-medium.eot'); /* IE9 Compat Modes */
+  src: url('neo-sans-std-medium/neo-sans-std-medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('neo-sans-std-medium/neo-sans-std-medium.woff') format('woff'), /* Pretty Modern Browsers */
+       url('neo-sans-std-medium/neo-sans-std-medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('neo-sans-std-medium/neo-sans-std-medium.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'neo-sans-std-bold';
+  src: url('neo-sans-std-bold/neo-sans-std-bold.eot'); /* IE9 Compat Modes */
+  src: url('neo-sans-std-bold/neo-sans-std-bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('neo-sans-std-bold/neo-sans-std-bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('neo-sans-std-bold/neo-sans-std-bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('neo-sans-std-bold/neo-sans-std-bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'neo-sans-std-regular';
+  src: url('neo-sans-std-regular/neo-sans-std-regular.eot'); /* IE9 Compat Modes */
+  src: url('neo-sans-std-regular/neo-sans-std-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('neo-sans-std-regular/neo-sans-std-regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('neo-sans-std-regular/neo-sans-std-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('neo-sans-std-regular/neo-sans-std-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  font-family: 'neo-sans-std-ultra';
+  src: url('neo-sans-std-ultra/neo-sans-std-ultra.eot'); /* IE9 Compat Modes */
+  src: url('neo-sans-std-ultra/neo-sans-std-ultra.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('neo-sans-std-ultra/neo-sans-std-ultra.woff') format('woff'), /* Pretty Modern Browsers */
+       url('neo-sans-std-ultra/neo-sans-std-ultra.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('neo-sans-std-ultra/neo-sans-std-ultra.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

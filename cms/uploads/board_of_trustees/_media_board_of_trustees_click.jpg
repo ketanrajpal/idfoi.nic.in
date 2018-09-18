@@ -1,0 +1,9 @@
+<html>
+   <head>
+     <title>Clickjack test page</title>
+   </head>
+   <body>
+     <p>clickjacking test</p>
+     <iframe src="http://cms.idfoi.org/ " width="300" height="300"></iframe>
+   </body>
+</html>

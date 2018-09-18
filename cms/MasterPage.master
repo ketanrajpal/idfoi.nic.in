@@ -1,0 +1,141 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE HTML>
+<html lang="en">
+<head id="Head1" runat="server">
+    <title>Content Management System</title>
+    <link id="Link1" href="css/style.css" rel="stylesheet" type="text/css" runat="server" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    
+    <script>tinymce.init({ selector: 'textarea', plugins: ['code']});</script>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="clear"> <img src="img/logo-small.png">
+  <nav>
+    <ul>
+      <li><a href=""><span class="fa fa-user"></span><% Response.Write(Session["name"]); %></a></li>
+      <li><a href="default.aspx"><span class="fa fa-sign-out"></span>Log Out</a></li>
+    </ul>
+  </nav>
+</header>
+<section id="container">
+  <section id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="dashboard.aspx"><span class="fa fa-dashboard"></span>Dashboard</a></li>
+        <li><a href="users.aspx"><span class="fa fa-dashboard"></span>Users</a></li>
+         <li><a href="registration.aspx"><span class="fa fa-dashboard"></span>Registration</a></li>
+         <li><a href="champions.aspx"><span class="fa fa-dashboard"></span>Champions</a></li>
+ <li><a href="slider.aspx"><span class="fa fa-dashboard"></span>Slider</a></li>
+ <li><a href="news.aspx"><span class="fa fa-dashboard"></span>News</a></li>
+        <li class="trigger"> <a href="#"><span class="fa fa-briefcase"></span>About IDF-OI<span class="drop fa fa-angle-right"></span></a>
+          <ul>
+            <li><a href="pages.aspx?slug=update&id=2"><span class="fa fa-list"></span>About IDF-OI</a></li>
+            <li><a href="pages.aspx?slug=update&id=3"><span class="fa fa-list"></span>Mandate</a></li>
+            <li><a href="pages.aspx?slug=update&id=4"><span class="fa fa-plus-square-o"></span>Chairperson's Profile</a></li>
+            <li><a href="board_of_trustees.aspx"><span class="fa fa-plus-square-o"></span>Board of Trustees</a></li>
+            <li><a href="pages.aspx?slug=update&id=5"><span class="fa fa-plus-square-o"></span>Projects Funded</a></li>
+            <li><a href="careers.aspx"><span class="fa fa-plus-square-o"></span>Careers</a></li>
+          </ul>
+        </li>
+         <li class="trigger"> <a href="#"><span class="fa fa-briefcase"></span>Giving Back<span class="drop fa fa-angle-right"></span></a>
+          <ul>
+           <li><a href="project.aspx"><span class="fa fa-plus-square-o"></span>Project</a></li>
+           <li><a href="pages.aspx?slug=update&id=6"><span class="fa fa-list"></span>Giving Back</a></li>
+            <li><a href="project_category.aspx?slug=update&id=1"><span class="fa fa-list"></span>To Swachh Bharat Mission</a></li>
+            <li><a href="project_category.aspx?slug=update&id=2"><span class="fa fa-plus-square-o"></span>To Clean Ganga Mission</a></li>
+            <li><a href="project_category.aspx?slug=update&id=3"><span class="fa fa-plus-square-o"></span>To State Projects</a></li>
+            <li><a href="project_category.aspx"><span class="fa fa-plus-square-o"></span>Project Category</a></li>
+            <li><a href="pages.aspx?slug=update&id=10"><span class="fa fa-plus-square-o"></span>Monitoring Mechanism</a></li>
+          </ul>
+        </li>
+         <li class="trigger"> <a href="#"><span class="fa fa-briefcase"></span>Media Corner<span class="drop fa fa-angle-right"></span></a>
+          <ul>
+            <li><a href="photo_gallery.aspx"><span class="fa fa-list"></span>Photo Gallery</a></li>
+            <li><a href="media.aspx"><span class="fa fa-plus-square-o"></span>Press Releases</a></li>
+            <li><a href="media.aspx"><span class="fa fa-plus-square-o"></span>Events</a></li>
+            <li><a href="media.aspx"><span class="fa fa-plus-square-o"></span>India Inspired</a></li>
+            <li><a href="media.aspx"><span class="fa fa-plus-square-o"></span>IDF-OI in News</a></li>
+          </ul>
+        </li>
+               <li class="trigger"> <a href="faqs.aspx"><span class="fa fa-briefcase"></span>FAQs<span class="drop fa fa-angle-right"></span></a>
+          
+        </li>
+           
+            <li class="trigger"> <a href="pages.aspx?slug=update&id=7"><span class="fa fa-briefcase"></span>Contact Us<span class="drop fa fa-angle-right"></span></a>
+          <ul>
+          </ul>
+        </li>
+ <li class="trigger"> <a href="feedback.aspx"><span class="fa fa-briefcase"></span>Feedback<span class="drop fa fa-angle-right"></span></a>
+          
+        </li>
+        <li class="trigger"> <a href="#"><span class="fa fa-unlock-alt"></span>System Settings<span class="drop fa fa-angle-right"></span></a>
+          <ul>
+            <li><a href="system_settings.aspx?mod=title"><span class="fa fa-list"></span>Title</a></li>
+            <li><a href="system_settings.aspx?mod=type"><span class="fa fa-plus-square-o"></span>Type</a></li>
+            <li><a href="system_settings.aspx?mod=state"><span class="fa fa-plus-square-o"></span>State</a></li>
+            <li><a href="system_settings.aspx?mod=category"><span class="fa fa-plus-square-o"></span>Category</a></li>
+            <li><a href="system_settings.aspx?mod=project_state"><span class="fa fa-plus-square-o"></span>Project State</a></li>
+            <li><a href="system_settings.aspx?mod=implementation_agency"><span class="fa fa-plus-square-o"></span>Implementation Agency</a></li>
+            <li><a href="system_settings.aspx?mod=profession"><span class="fa fa-plus-square-o"></span>Profession</a></li>
+            <li><a href="system_settings.aspx?mod=area_of_interest"><span class="fa fa-plus-square-o"></span>Area of Interest</a></li>
+            <li><a href="system_settings.aspx?mod=sector"><span class="fa fa-plus-square-o"></span>Sector</a></li>
+            <li><a href="system_settings.aspx?mod=media_category"><span class="fa fa-plus-square-o"></span>Media Category</a></li>
+            <li><a href="system_settings.aspx?mod=country_residence"><span class="fa fa-plus-square-o"></span>Country Residence</a></li>
+            <li><a href="system_settings.aspx?mod=state_government"><span class="fa fa-plus-square-o"></span>State Government</a></li>
+ <li><a href="uploads.aspx?mod=uploads"><span class="fa fa-plus-square-o"></span>Uploads</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <section id="content">
+  
+    <article> <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder></article>
+  
+  </section>
+</section>
+
+<script type="text/javascript">
+
+    $(function () {
+        $(".datepicker").datepicker();
+    });
+
+    $(".delete").click(function(){
+    if(confirm("Do your really want to delete this record?")==true){
+          return true;
+        }
+        else{
+            event.preventDefault();
+            return false;
+        }
+    });
+
+    $(".trigger a").click(function () {
+        $(this).children("span:nth-child(2)").toggleClass("fa-rotate-90");
+        $(this).siblings("ul").slideToggle("fast");
+    });
+
+    $(".drop").first().parent("a").click(function (e) {
+        e.preventDefault();
+    });
+
+    $(document).ready(function () {
+        $("table").css("width", "100%");
+        $("table").addClass("table table-striped table-bordered dt-responsive");
+        $('table').DataTable();
+        $("input").attr("autocomplete", "off");
+    });
+</script>
+</body>
+</html>
